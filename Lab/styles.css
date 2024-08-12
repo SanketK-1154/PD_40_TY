@@ -1,6 +1,8 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f8f9fa;
+    background-image: url("bg.jpg");
+    background-position: center;
+    background-size: cover;
     color: #343a40;
 }
 
@@ -10,7 +12,7 @@ body {
 }
 
 .hero-section {
-    background-image: url('pune-bg.jpg');
+    background-image: url("bg.jpg");
     background-size: cover;
     background-position: center;
     color: white;
@@ -59,3 +61,4 @@ footer {
         opacity: 1;
     }
 }
+
