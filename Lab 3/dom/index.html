@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Manipulation (DOM)</title>
+    <style>
+        
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        h1 {
+            color: blue;
+        }
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            background-color: #f0f0f0;
+        }
+
+       
+        #image-section {
+            margin: 20px 0;
+        }
+        #image {
+            display: block;
+            margin: 20px auto;
+            width: 300px;
+        }
+
+        
+        #text-section {
+            margin: 20px 0;
+        }
+        #dynamic-text {
+            color: red;
+        }
+
+        
+        #form-section {
+            margin: 20px 0;
+        }
+        input[type="text"] {
+            padding: 10px;
+            width: calc(100% - 22px);
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    
+    <header>
+        <h1 id="title">Welcome to My Dynamic Web Page</h1>
+    </header>
+
+    
+    <section id="image-section">
+        <img id="image" src="img.jpg" alt="Placeholder Image">
+        <button id="change-image">Change Image</button>
+    </section>
+
+    
+    <section id="text-section">
+        <div id="text-container">
+            <p id="dynamic-text">Which Animal is this.</p>
+        </div>
+        <button id="add-text">Add Text</button>
+        <button id="delete-text">Delete Text</button>
+    </section>
+
+    
+    <section id="form-section">
+        <form id="myForm">
+            <input type="text" id="name" placeholder="Enter ur answer">
+            <button type="submit" id="submit-form">Submit</button>
+        </form>
+    </section>
+
+    
+    <section>
+        <button id="jquery-button">Change Button Text (jQuery)</button>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>

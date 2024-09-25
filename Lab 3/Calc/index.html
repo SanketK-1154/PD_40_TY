@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Alerts, Prompts, Confirmations, and Calculator</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f4f4f9;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            margin-top: 20px;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .calculator {
+            border: 2px solid #333; /* Dark border */
+            border-radius: 10px; /* More rounded corners */
+            padding: 20px; /* Padding inside the border */
+            background-color: #fff; /* White background */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Deeper shadow for depth */
+        }
+        .calculator .form-control {
+            margin-bottom: 10px;
+        }
+        .calculator .btn {
+            margin: 5px; /* Space between buttons */
+            width: 100%; /* Full-width buttons */
+            font-size: 1.1em; /* Larger text */
+            border-radius: 5px; /* Rounded corners for buttons */
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+        .btn-secondary {
+            background-color: #6c757d;
+            border-color: #6c757d;
+        }
+        .btn-success {
+            background-color: #28a745;
+            border-color: #28a745;
+        }
+        .btn-danger {
+            background-color: #dc3545;
+            border-color: #dc3545;
+        }
+        .btn-warning {
+            background-color: #ffc107;
+            border-color: #ffc107;
+        }
+        .result-box {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="section">
+        <div class="text-center">
+            <button class="btn btn-primary" onclick="promptBox()">Prompt!</button>
+            <button class="btn btn-secondary" onclick="myFunction()">Click!</button>
+            <button class="btn btn-success" onclick="myConfirm()">Confirm!</button>
+            <button class="btn btn-warning" onclick="myCity()">City!</button>
+        </div>
+    </div>
+
+    <h3 class="text-center mb-4">Calculator</h3>
+    <div class="calculator">
+        <div class="section">
+            <div class="form-group">
+                <label for="num1">Number 1:</label>
+                <input type="text" class="form-control" id="num1" placeholder="Enter number 1">
+            </div>
+            <div class="form-group">
+                <label for="num2">Number 2:</label>
+                <input type="text" class="form-control" id="num2" placeholder="Enter number 2">
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="row">
+                <div class="col-6">
+                    <button class="btn btn-primary" onclick="addNumbers()">Add</button>
+                </div>
+                <div class="col-6">
+                    <button class="btn btn-secondary" onclick="subtractNumbers()">Subtract</button>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-6">
+                    <button class="btn btn-success" onclick="multiplyNumbers()">Multiply</button>
+                </div>
+                <div class="col-6">
+                    <button class="btn btn-danger" onclick="divideNumbers()">Divide</button>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-12">
+                    <button class="btn btn-warning" onclick="clearFields()">Clear</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="form-group">
+                <label for="result">Result:</label>
+                <input type="text" class="form-control result-box" id="result" readonly>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap JS and dependencies -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+function myFunction() {
+    alert("I am an alert box!");
+}
+
+function promptBox() {
+    let person = prompt("Please enter your name");
+    if (person === null || person === "") {
+        alert("User cancelled the prompt.");
+    } else {
+        alert("Hello " + person + "! How are you today?");
+    }
+}
+
+function myConfirm() {
+    var x = confirm("Click on OK button");
+    alert("User selected option is: " + x);
+    if (x) {
+        alert("User clicked OK button");
+    } else {
+        alert("User clicked Cancel button");
+    }
+}
+
+function myCity() {
+    var city = prompt("Enter your city name (PUNE, HYD, CSK, NAGPUR, SOLAPUR):", "CITY");
+    switch(city) {
+        case 'AIES':
+            alert("You have selected: " + city);
+            break;
+        case 'DE':
+            alert("You have selected: " + city);
+            break;
+        case 'ICS':
+            alert("You have selected: " + city);
+            break;
+        case 'FSD':
+            alert("You have selected: " + city);
+            break;
+        case 'BDT':
+            alert("You have selected: " + city);
+            break;
+        default:
+            alert("You selected wrong city");
+    }
+}
+
+function addNumbers() {
+    performCalculation((a, b) => a + b);
+}
+
+function subtractNumbers() {
+    performCalculation((a, b) => a - b);
+}
+
+function multiplyNumbers() {
+    performCalculation((a, b) => a * b);
+}
+
+function divideNumbers() {
+    performCalculation((a, b) => {
+        if (b === 0) {
+            alert("Cannot divide by zero!");
+            return;
+        }
+        return a / b;
+    });
+}
+
+function performCalculation(operation) {
+    let num1 = parseFloat(document.getElementById('num1').value);
+    let num2 = parseFloat(document.getElementById('num2').value);
+    
+    if (isNaN(num1) || isNaN(num2)) {
+        alert("Please enter valid numbers in both fields.");
+        return;
+    }
+    
+    let result = operation(num1, num2);
+    document.getElementById('result').value = result !== undefined ? result : "";
+}
+
+function clearFields() {
+    document.getElementById('num1').value = '';
+    document.getElementById('num2').value = '';
+    document.getElementById('result').value = '';
+}
+</script>
+
+</body>
+</html>
